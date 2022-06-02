@@ -1,9 +1,8 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
+  * @file    stm32f0xx_it.h
+  * @brief   This file contains the headers of the interrupt handlers.
   ******************************************************************************
   * @attention
   *
@@ -15,20 +14,17 @@
   * License. You may obtain a copy of the License at:
   *                        opensource.org/licenses/BSD-3-Clause
   *
-  ******************************************************************************
+ ******************************************************************************
   */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef __STM32F0xx_IT_H
+#define __STM32F0xx_IT_H
 
 #ifdef __cplusplus
-extern "C" {
-#endif
-
-/* Includes ------------------------------------------------------------------*/
-#include "stm32f0xx_hal.h"
+ extern "C" {
+#endif 
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -51,37 +47,22 @@ extern "C" {
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-void Error_Handler(void);
-
+void NMI_Handler(void);
+void HardFault_Handler(void);
+void SVC_Handler(void);
+void PendSV_Handler(void);
+void SysTick_Handler(void);
+void TIM14_IRQHandler(void);
+void TIM16_IRQHandler(void);
+void USART1_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
-
-/* Private defines -----------------------------------------------------------*/
-#define INF_INT_Pin GPIO_PIN_0
-#define INF_INT_GPIO_Port GPIOA
-#define IMU_INT_Pin GPIO_PIN_1
-#define IMU_INT_GPIO_Port GPIOA
-#define TER_TXD_Pin GPIO_PIN_2
-#define TER_TXD_GPIO_Port GPIOA
-#define TER_RXD_Pin GPIO_PIN_3
-#define TER_RXD_GPIO_Port GPIOA
-#define SIG_NSS_Pin GPIO_PIN_4
-#define SIG_NSS_GPIO_Port GPIOA
-#define ACT_PWM_Pin GPIO_PIN_1
-#define ACT_PWM_GPIO_Port GPIOB
-#define SEN_SCL_Pin GPIO_PIN_9
-#define SEN_SCL_GPIO_Port GPIOA
-#define SEN_SDA_Pin GPIO_PIN_10
-#define SEN_SDA_GPIO_Port GPIOA
-/* USER CODE BEGIN Private defines */
-
-/* USER CODE END Private defines */
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __MAIN_H */
+#endif /* __STM32F0xx_IT_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
